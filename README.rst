@@ -11,7 +11,7 @@ An example setup of poultry. To collect the tweets:
 Timeline
 ========
 
-`timeline.dat` is a ``dot`` script that shows tweet bandwidth over a period of
+`timeline.dat` is a ``gnuplot`` script that shows tweet bandwidth over a period of
 time::
 
     poultry -s london timeline > timeline.txt
