@@ -1,0 +1,28 @@
+set term pdfcairo size 6in,0.9in font "Times New Roman, 9"
+
+set termoption dash
+set output "timeline.pdf"
+
+set style line 1 lw 3 lc rgb "#6e56a1"
+set style line 2 lw 3 lc rgb "#fdc20e"
+
+set format x "%b %d"
+
+set key left top
+
+set xdata time
+set timefmt "%Y-%m-%d-%H"
+
+set yrange [0:15000]
+set xrange ["2014-07-21-00":"2014-07-30-23-59"]
+
+set y2tics
+set ytics nomirror
+
+set xlabel "Month"
+set ylabel "Tweets per hour"
+set y2label "Number of tweets"
+
+
+plot "timeline.txt" using 1:2 with lines smooth bezier title 'Tweets per hour' ls 1, \
+     ""  using 1:2 with lines smooth cumul title 'Number of tweets' axis x1y2 ls 2
